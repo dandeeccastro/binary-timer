@@ -1,0 +1,23 @@
+{
+  "name": "binary-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dandeeccastro/binary-timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dandeeccastro/binary-timer/issues"
+  },
+  "homepage": "https://github.com/dandeeccastro/binary-timer#readme",
+  "devDependencies": {
+    "electron": "^7.1.7"
+  }
+}
