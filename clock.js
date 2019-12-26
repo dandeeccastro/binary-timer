@@ -1,4 +1,13 @@
 const stylesheet = require('./config.js');
+var state = 0;
+var timer = []
+
+function resetClockStyle(){
+	let bits = document.getElementsByTagName('td')
+	for (let bit of bits){
+		bit.style.backgroundColor = stylesheet.style.default.COLOR_INACTIVE
+	}
+}
 
 function changeBitColor(i,j,color){
 	var clock = document.getElementById('binary-table');
@@ -53,12 +62,14 @@ function setBitToNumber(category,number) {
 	}
 }
 
-function main() {
+function initiateTimer(){
+	console.log('start')
 	var time = [0,0,0,0,0,0];
 	var dict = ['milisecond','second-one','second-ten','minute-one','minute-ten','hour']
 	var msToProperTime = [100,1000,10000,60000,600000,3600000];
+	var timers = []
 	for (let i = 0; i < time.length; i++) {
-		setInterval(() => {
+		timers.push(setInterval(() => {
 			time[i] += 1;
 			if (time[i] == 6 && (dict[i] == 'second-ten' || dict[i] == 'minute-ten')) {
 				time[i] = 0;
@@ -66,8 +77,33 @@ function main() {
 				time[i] = 0;
 			}
 			setBitToNumber(dict[i],time[i]);
-		}, msToProperTime[i]);
+		}, msToProperTime[i]))
 	}
+	console.log(timers)
+	return timers
+}
+
+function stopTimer(){
+	console.log('stop')
+	console.log(timer);
+	for (let i = 0; i < timer.length; i++){
+		clearInterval(timer[i]);
+		timer.pop(i);
+	}
+	resetClockStyle();
+}
+
+function main() {
+	document.addEventListener("keydown",() => {
+		if (!state){
+			timer = initiateTimer()
+			state = 1;
+		} else {
+			stopTimer();
+			state = 0
+		}
+	});
+	resetClockStyle()
 }
 
 main()
