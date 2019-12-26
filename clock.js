@@ -1,5 +1,4 @@
-const COLOR_ACTIVE = 'green'
-const COLOR_INACTIVE = 'white'
+const stylesheet = require('./config.js');
 
 function changeBitColor(i,j,color){
 	var clock = document.getElementById('binary-table');
@@ -11,7 +10,6 @@ function changeBitColor(i,j,color){
 }
 
 function setBit(i,row,color) {
-	console.log(row)
 	if (i < 4) {
 		var bit = row[i];
 		bit.style.backgroundColor = color;
@@ -49,9 +47,9 @@ function setBitToNumber(category,number) {
 	bits = bits.reverse();
 	for (let i = 0; i < 4; i++) {
 		if (bits[i])
-			setBit(i,row,COLOR_ACTIVE);
+			setBit(i,row,stylesheet.style.default.COLOR_ACTIVE);
 		else 
-			setBit(i,row,COLOR_INACTIVE);
+			setBit(i,row,stylesheet.style.default.COLOR_INACTIVE);
 	}
 }
 

@@ -3,17 +3,6 @@ tr {
 }
 
 td { 
-	border: 5px solid black;
+	border: 5px solid blue;
 	width: 16.66vw;
-}
-
-.flick {
-	animation-name: bit;
-	animation-duration: 0.5s;
-	animation-play-state: paused;
-}
-
-@keyframes bit {
-	from {background-color: green} 
-	to { background-color: white}
 }
