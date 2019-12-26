@@ -1,8 +1,6 @@
-function initiateBits() {
-	var bits = document.getElementsByTagName('td')
-	for (let bit of bits) 
-		bits.classList.add('flick')
-}
+const COLOR_ACTIVE = 'green'
+const COLOR_INACTIVE = 'white'
+
 function changeBitColor(i,j,color){
 	var clock = document.getElementById('binary-table');
 	if (6*j + i < 24) {
@@ -51,14 +49,10 @@ function setBitToNumber(category,number) {
 	bits = bits.reverse();
 	for (let i = 0; i < 4; i++) {
 		if (bits[i])
-			setBit(i,row,'green');
+			setBit(i,row,COLOR_ACTIVE);
 		else 
-			setBit(i,row,'white');
+			setBit(i,row,COLOR_INACTIVE);
 	}
-}
-
-function carryOne() {
-	console.log('TODO: implement me');
 }
 
 function main() {
